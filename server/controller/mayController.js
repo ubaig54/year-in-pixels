@@ -1,8 +1,8 @@
-const janModel = require('../model/janModel')
+const mayModel = require('../model/mayModel')
 
 
 module.exports.getStatus = async (req, res) => {
-    const _color = await janModel.find({})
+    const _color = await mayModel.find({})
     if(_color) {
         return res.send({code: 200, message: 'success', color: _color})
     } else {
@@ -18,7 +18,7 @@ module.exports.addStatus = async (req, res) => {
         return res.send({ code: 200, message: 'Bad Request' })
     }
 
-    const entry = new janModel({ color: color })
+    const entry = new mayModel({ color: color })
     const success = await entry.save()
     if (success) {
         return res.send({ code: 200, message: 'add success' })
